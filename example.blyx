@@ -1,0 +1,17 @@
+use petrel;
+
+fn main() {
+    let tokens = 2.0;
+    let capacity = 10.0;
+    let rate = 2.0;
+    let elapsed = 1.0;
+    let cost = 8.0;
+    let deadline = 2.0;
+    let result = petrel_admit(tokens, capacity, rate, elapsed, cost, deadline);
+    if len(result) == 0 { println!("invalid"); return; }
+    let mut i = 0;
+    while i < len(result) {
+        println!(at(result, i));
+        i += 1;
+    }
+}

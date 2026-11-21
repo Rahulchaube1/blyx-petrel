@@ -1,10 +1,14 @@
-<img src="assets/logo.png" width="112" height="112" alt="Petrel logo">
+<img src="assets/logo.png" width="112" height="112" alt="A charcoal storm petrel touches a wave with its yellow feet.">
 
 # Petrel
 
 Admit an immediate charge or report the wait a request can afford. This Blyx workflow framework is part of the queues and messaging collection.
 
 Charging a delayed request immediately can remove capacity from unrelated work. Return the wait separately from the updated balance. [IETF RFC 2697, token buckets](https://www.rfc-editor.org/rfc/rfc2697)
+
+## Editor extension
+
+Install **RahulChaube.blyx-petrel** to run the worked example and use the framework’s function completions in a Blyx file. Open an empty `.blyx` file, enter `blyx-petrel-demo`, then choose **Blyx: Run File**. [Editor downloads](https://www.blyx-lang.space/packages/petrel#editor) · [Download the extension](https://github.com/Rahulchaube1/blyxxxx/releases/download/framework-editors-v0.1.0/blyx-petrel-0.1.0.vsix) · [Starter with framework source](https://github.com/Rahulchaube1/blyxxxx/releases/download/framework-editors-v0.1.0/blyx-petrel-starter-0.1.0.zip)
 
 ## Install and run
 
@@ -88,7 +92,7 @@ This release includes identical copies of both library modules so a tagged clone
 
 ## Verification and contributions
 
-The regression suite in [tests.blyx](tests.blyx) checks the example, boundary cases and invalid inputs. Include a short reproducer and your compiler version in [an issue](https://github.com/Rahulchaube1/blyx-petrel/issues). The source is dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE). The package artwork uses [Lucide icons](https://lucide.dev/license); see [artwork notices](assets/NOTICE.txt).
+The regression suite in [tests.blyx](tests.blyx) checks the example, boundary cases and invalid inputs. Include a short reproducer and your compiler version in [an issue](https://github.com/Rahulchaube1/blyx-petrel/issues). The source is dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE). The [artwork notice](assets/NOTICE.txt) records credits for earlier editions.
 
 ## Connect with Rahul Chaube
 

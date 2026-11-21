@@ -1,0 +1,44 @@
+use tokenbucket;
+use waitbudget;
+
+fn petrel_finite(values: vector) -> bool {
+    let mut i = 0;
+    while i < len(values) {
+        let value = at(values, i);
+        if !(value - value == 0.0) {
+            return false;
+        }
+        i += 1;
+    }
+    true
+}
+
+fn petrel_compute(tokens: f64, capacity: f64, rate: f64, elapsed: f64, cost: f64, deadline: f64) -> vector {
+    let bucket = tokenbucket_refill(tokens, capacity, rate, elapsed);
+    if len(bucket) == 0 {
+        return [];
+    }
+    let available = at(bucket, 0);
+    let plan = waitbudget_admit(available, capacity, rate, cost, deadline);
+    if len(plan) == 0 {
+        return [];
+    }
+    if at(plan, 1) == 0.0 {
+        return [1, available - cost, 1, 0];
+    }
+    [0, available, at(plan, 0), at(plan, 1)]
+}
+
+// Admit an immediate charge or report the wait a request can afford.
+// Returns [charge now, balance after immediate decision, feasible by deadline, wait]. Deferred work consumes no tokens until resubmitted.
+pub fn petrel_admit(tokens: f64, capacity: f64, rate: f64, elapsed: f64, cost: f64, deadline: f64) -> vector {
+    if !(tokens >= 0.0 && tokens - tokens == 0.0) { return []; }
+    if !(capacity > 0.0 && capacity - capacity == 0.0) { return []; }
+    if !(rate > 0.0 && rate - rate == 0.0) { return []; }
+    if !(elapsed >= 0.0 && elapsed - elapsed == 0.0) { return []; }
+    if !(cost > 0.0 && cost - cost == 0.0) { return []; }
+    if !(deadline >= 0.0 && deadline - deadline == 0.0) { return []; }
+    let result = petrel_compute(tokens, capacity, rate, elapsed, cost, deadline);
+    if !petrel_finite(result) { return []; }
+    result
+}
